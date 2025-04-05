@@ -18,13 +18,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+    <html lang="en" suppressHydrationWarning className="dark">
+      <head />
+      <body className={`${inter.className} dark:bg-background dark:text-foreground`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
+          enableSystem={false}
+          forcedTheme="dark"
         >
           {children}
         </ThemeProvider>
