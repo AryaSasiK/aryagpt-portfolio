@@ -48,7 +48,7 @@ export default function Sidebar({ isOpen, onNewChat, chats = [], onChatSelected 
 
   return (
     <div
-      className={`fixed top-0 left-0 w-64 h-full bg-[#171717] flex flex-col overflow-hidden transition-all ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
+      className={`fixed top-0 left-0 w-64 h-full bg-sidebar text-sidebar-foreground flex flex-col overflow-hidden transition-all ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
       style={{
         WebkitTapHighlightColor: 'transparent',
         WebkitTouchCallout: 'none',
@@ -66,7 +66,7 @@ export default function Sidebar({ isOpen, onNewChat, chats = [], onChatSelected 
         <div className="p-3 flex items-center gap-3">
           <button
             onClick={addNewChat}
-            className="flex items-center gap-2 p-2 rounded-full hover:bg-[#2a2b32] transition-colors w-full"
+            className="flex items-center gap-2 p-2 rounded-full hover:bg-sidebar-accent transition-colors w-full text-sidebar-foreground"
           >
             <svg
               width="32"
@@ -74,7 +74,7 @@ export default function Sidebar({ isOpen, onNewChat, chats = [], onChatSelected 
               viewBox="0 0 1024 1024"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="text-gray-400"
+              className="text-sidebar-foreground"
             >
               <path
                 d="M280.489105,654.507812 C294.240997,677.479675 313.890808,691.244934 340.140717,695.098022 C346.371460,696.012512 352.713715,696.595032 359.005463,696.601746 C448.490723,696.697327 537.976257,696.778076 627.461304,696.611877 C661.912292,696.547852 689.147766,682.920044 706.207703,652.039917 C712.559631,640.542236 715.807190,628.068726 715.730408,614.732727 C715.563538,585.738464 715.642212,556.742493 715.713196,527.747437 C715.735718,518.529785 719.617493,511.363708 727.829468,506.825317 C736.208984,502.194305 744.462036,502.866821 752.425537,507.803802 C758.907532,511.822266 762.119568,518.167969 762.173096,525.433044 C762.413574,558.092224 763.180603,590.789673 761.936401,623.403809 C760.984314,648.358521 751.696960,671.086792 736.218201,690.927734 C717.030396,715.523193 692.882507,732.556091 661.824646,738.696472 C653.997437,740.244080 646.097473,741.293823 638.075439,741.291809 C541.257996,741.267395 444.437317,741.738037 347.624451,741.070923 C301.475708,740.752991 266.593292,718.922241 242.667694,679.724731 C229.955994,658.898987 224.581360,636.004822 224.622955,611.625122 C224.755463,533.971680 224.435928,456.316895 224.784103,378.664825 C224.935242,344.961395 237.137680,315.612976 260.222809,290.994904 C279.241638,270.713104 302.398193,257.583160 329.766388,252.321899 C337.246002,250.884033 344.845612,249.748627 352.522003,249.743134 C375.351501,249.726807 398.181824,249.630798 421.010193,249.793839 C434.362671,249.889191 443.494232,257.412323 446.017517,269.813232 C448.860443,283.784973 437.761292,297.115692 422.839569,297.219330 C399.344574,297.382477 375.845123,297.483856 352.352142,297.214081 C326.237793,296.914246 305.875183,307.996735 289.608612,327.732605 C274.786011,345.716583 269.740967,366.638977 269.852234,389.561554 C270.223480,466.044281 270.143494,542.529114 270.382324,619.012695 C270.421509,631.560303 274.229095,643.243958 280.489105,654.507812"
@@ -94,7 +94,7 @@ export default function Sidebar({ isOpen, onNewChat, chats = [], onChatSelected 
           <nav className="space-y-1">
             <button
               onClick={resetToLandingPage}
-              className="flex items-center gap-2 p-2 rounded-full hover:bg-[#2a2b32] transition-colors text-gray-300 hover:text-white w-full text-left"
+              className="flex items-center gap-2 p-2 rounded-full hover:bg-sidebar-accent transition-colors text-sidebar-foreground hover:text-sidebar-foreground w-full text-left"
             >
               <span className="flex-shrink-0"><User size={16} /></span>
               <span className="text-sm truncate">AryaGPT</span>
@@ -113,7 +113,7 @@ export default function Sidebar({ isOpen, onNewChat, chats = [], onChatSelected 
 
       {/* Scrollable content */}
       <div 
-        className="flex-1 overflow-y-auto bg-[#171717] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-[#171717] [&::-webkit-scrollbar-thumb]:bg-[#2a2b32] [&::-webkit-scrollbar-thumb]:rounded-full [-webkit-tap-highlight-color:transparent] select-none"
+        className="flex-1 overflow-y-auto bg-sidebar [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-sidebar [&::-webkit-scrollbar-thumb]:bg-sidebar-accent [&::-webkit-scrollbar-thumb]:rounded-full [-webkit-tap-highlight-color:transparent] select-none"
         style={{
           WebkitTapHighlightColor: 'transparent',
           WebkitTouchCallout: 'none',
@@ -121,7 +121,6 @@ export default function Sidebar({ isOpen, onNewChat, chats = [], onChatSelected 
           MozUserSelect: 'none',
           msUserSelect: 'none',
           userSelect: 'none',
-          backgroundColor: '#171717',
           outline: 'none',
           WebkitAppearance: 'none'
         }}
@@ -129,14 +128,14 @@ export default function Sidebar({ isOpen, onNewChat, chats = [], onChatSelected 
         {/* Today's chats */}
         <div className="mt-2">
           <div className="px-3">
-            <h3 className="text-xs font-medium text-gray-400">Today</h3>
+            <h3 className="text-xs font-medium text-sidebar-foreground/60">Today</h3>
           </div>
           <div className="mt-2 px-2 space-y-1">
             {allChats.map((chat) => (
               <button
                 key={chat.id}
                 onClick={() => handleChatClick(chat.id)}
-                className="flex items-center gap-2 p-2 w-full text-left rounded-full hover:bg-[#2a2b32] transition-colors text-gray-300 hover:text-white"
+                className="flex items-center gap-2 p-2 w-full text-left rounded-full hover:bg-sidebar-accent transition-colors text-sidebar-foreground hover:text-sidebar-foreground"
               >
                 <span className="text-sm truncate">{chat.title}</span>
               </button>
@@ -147,8 +146,8 @@ export default function Sidebar({ isOpen, onNewChat, chats = [], onChatSelected 
         {/* Projects section */}
         <div className="mt-2">
           <div className="px-3 flex items-center justify-between">
-            <h3 className="text-xs font-medium text-gray-400">Projects</h3>
-            <button className="text-gray-400 hover:text-white rounded-full hover:bg-[#2a2b32] transition-colors p-1">
+            <h3 className="text-xs font-medium text-sidebar-foreground/60">Projects</h3>
+            <button className="text-sidebar-foreground/60 hover:text-sidebar-foreground rounded-full hover:bg-sidebar-accent transition-colors p-1">
               <Plus size={16} />
             </button>
           </div>
@@ -163,7 +162,7 @@ export default function Sidebar({ isOpen, onNewChat, chats = [], onChatSelected 
         {/* Education section */}
         <div className="mt-2">
           <div className="px-3">
-            <h3 className="text-xs font-medium text-gray-400">Education</h3>
+            <h3 className="text-xs font-medium text-sidebar-foreground/60">Education</h3>
           </div>
           <div className="mt-2 px-2 space-y-1">
             <NavItem icon={<span className="text-xs">🎓</span>} label="Undergrad: UC Berkeley M.E.T. Program" href="#education" />
@@ -173,7 +172,7 @@ export default function Sidebar({ isOpen, onNewChat, chats = [], onChatSelected 
         {/* Engineering Work Experience section */}
         <div className="mt-2">
           <div className="px-3">
-            <h3 className="text-xs font-medium text-gray-400">Engineering Work Experience</h3>
+            <h3 className="text-xs font-medium text-sidebar-foreground/60">Engineering Work Experience</h3>
           </div>
           <div className="mt-2 px-2 space-y-1">
             <NavItem icon={<span className="text-xs">💼</span>} label="Omron Robotics" href="#work" />
@@ -184,7 +183,7 @@ export default function Sidebar({ isOpen, onNewChat, chats = [], onChatSelected 
         {/* Entrepreneurial Experience section */}
         <div className="mt-2">
           <div className="px-3">
-            <h3 className="text-xs font-medium text-gray-400">Entrepreneurial Experience</h3>
+            <h3 className="text-xs font-medium text-sidebar-foreground/60">Entrepreneurial Experience</h3>
           </div>
           <div className="mt-2 px-2 space-y-1">
             <NavItem icon={<span className="text-xs">🚀</span>} label="Robolabs" href="#startup" />
@@ -196,7 +195,7 @@ export default function Sidebar({ isOpen, onNewChat, chats = [], onChatSelected 
         {/* Media Features section */}
         <div className="mt-2 mb-4">
           <div className="px-3">
-            <h3 className="text-xs font-medium text-gray-400">Media Features</h3>
+            <h3 className="text-xs font-medium text-sidebar-foreground/60">Media Features</h3>
           </div>
           <div className="mt-2 px-2 space-y-1">
             <NavItem icon={<span className="text-xs">📺</span>} label="ABC7 News Clips" href="#media" />
@@ -226,7 +225,7 @@ function NavItem({
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-2 p-2 rounded-full hover:bg-[#2a2b32] transition-colors text-gray-300 hover:text-white"
+        className="flex items-center gap-2 p-2 rounded-full hover:bg-sidebar-accent transition-colors text-sidebar-foreground hover:text-sidebar-foreground"
       >
         {icon && <span className="flex-shrink-0">{icon}</span>}
         <span className="text-sm truncate">{label}</span>
@@ -237,7 +236,7 @@ function NavItem({
   return (
     <Link
       href={href}
-      className="flex items-center gap-2 p-2 rounded-full hover:bg-[#2a2b32] transition-colors text-gray-300 hover:text-white"
+      className="flex items-center gap-2 p-2 rounded-full hover:bg-sidebar-accent transition-colors text-sidebar-foreground hover:text-sidebar-foreground"
     >
       {icon && <span className="flex-shrink-0">{icon}</span>}
       <span className="text-sm truncate">{label}</span>
