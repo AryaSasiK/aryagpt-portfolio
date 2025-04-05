@@ -2,7 +2,6 @@
 
 import { useState, useCallback, useEffect } from "react"
 import { motion } from "framer-motion"
-import { ThemeProvider } from "@/components/theme-provider"
 import Sidebar from "@/components/sidebar"
 import { Header } from "@/components/layout/Header"
 import { ChatContainer } from "@/components/chat/ChatContainer"
@@ -124,7 +123,7 @@ function MainApp() {
   }, [messages, sendMessage]);
 
   return (
-    <div className="flex h-screen bg-[#212121] text-white" key={`main-app-${renderKey}`}>
+    <div className="flex h-screen bg-background text-foreground">
       {/* Sidebar with animation - fixed positioning */}
       <motion.div
         className="fixed left-0 top-0 z-40 h-full"
@@ -142,7 +141,7 @@ function MainApp() {
 
       {/* Main content area */}
       <motion.main
-        className="flex-1 flex flex-col h-screen overflow-hidden relative bg-[#212121]"
+        className="flex-1 flex flex-col h-screen overflow-hidden relative bg-background"
         initial={{ marginLeft: 256 }}
         animate={{ marginLeft: sidebarOpen ? 256 : 0 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -177,11 +176,9 @@ function MainApp() {
 // Root component that provides the chat context
 export default function Home() {
   return (
-    <ThemeProvider defaultTheme="dark" forcedTheme="dark">
-      <ChatProvider>
-        <MainApp />
-      </ChatProvider>
-    </ThemeProvider>
+    <ChatProvider>
+      <MainApp />
+    </ChatProvider>
   )
 }
 
