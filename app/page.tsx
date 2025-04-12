@@ -20,7 +20,15 @@ interface Conversation {
 // MainApp component that uses the chat context
 function MainApp() {
   const isMobile = useIsMobile()
+  console.log('Is mobile device:', isMobile)
   const [sidebarOpen, setSidebarOpen] = useState(!isMobile)
+  console.log('Initial sidebar state:', sidebarOpen)
+  
+  // Update sidebar state when mobile status changes
+  useEffect(() => {
+    setSidebarOpen(!isMobile)
+  }, [isMobile])
+
   const [conversations, setConversations] = useState<Conversation[]>([
     { id: 1, title: "AryaGPT Portfolio Concept", date: "today", messages: [] }
   ])
@@ -138,14 +146,15 @@ function MainApp() {
           onNewChat={handleNewChat}
           chats={sidebarChats}
           onChatSelected={handleChatSelected}
+          onClose={() => setSidebarOpen(false)}
         />
       </motion.div>
 
       {/* Main content area */}
       <motion.main
         className="flex-1 flex flex-col h-screen overflow-hidden relative bg-[#212121]"
-        initial={{ marginLeft: 256 }}
-        animate={{ marginLeft: sidebarOpen ? 256 : 0 }}
+        initial={{ marginLeft: isMobile ? 0 : 256 }}
+        animate={{ marginLeft: isMobile ? 0 : (sidebarOpen ? 256 : 0) }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
         {/* Header */}
@@ -190,20 +199,24 @@ function useIsMobile() {
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    const checkIfMobile = () => {
-      setIsMobile(window.innerWidth < 768)
+    // Handle SSR
+    if (typeof window !== 'undefined') {
+      const checkIfMobile = () => {
+        setIsMobile(window.innerWidth < 768)
+      }
+      
+      // Check on initial render
+      checkIfMobile()
+      
+      // Add event listener for window resize
+      window.addEventListener('resize', checkIfMobile)
+      
+      // Clean up
+      return () => window.removeEventListener('resize', checkIfMobile)
     }
-    
-    // Check on initial render
-    checkIfMobile()
-    
-    // Add event listener for window resize
-    window.addEventListener('resize', checkIfMobile)
-    
-    // Clean up
-    return () => window.removeEventListener('resize', checkIfMobile)
   }, [])
 
-  return isMobile
+  // For SSR, default to false, for client, return current state
+  return typeof window !== 'undefined' ? window.innerWidth < 768 : isMobile
 }
 
