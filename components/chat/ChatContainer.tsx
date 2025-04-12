@@ -106,65 +106,65 @@ export const ChatContainer = forwardRef<ChatContainerRef, ChatContainerProps>(
   const renderKey = `chat-${initialMessages.length}-${forceUpdateRef.current}-${isLoading ? 'loading' : 'idle'}`
 
   return (
-    <div className="flex flex-col h-[calc(100vh-56px)] overflow-hidden" key={renderKey}>
+    <div className="flex flex-col h-[calc(100dvh-56px)] overflow-hidden" key={renderKey}>
       {/* Chat messages area */}
       <div className="flex-1 overflow-y-auto bg-[#212121] pb-16 sm:pb-24">
         {initialMessages.length === 0 ? (
-          <div className="flex flex-col items-center justify-center min-h-full max-w-2xl mx-auto px-4 py-8">
-            <div className="text-center mb-6">
-              <h1 className="text-4xl font-bold mb-6 text-white">
+          <div className="flex flex-col items-center justify-center h-full max-w-2xl mx-auto px-3 py-2 sm:py-8">
+            <div className="text-center mb-3 sm:mb-6">
+              <h1 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-6 text-white">
                 Welcome to Arya's Digital Portfolio
               </h1>
-              <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-2 border-[#2a2b32]">
+              <div className="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-3 sm:mb-6 rounded-full overflow-hidden border-2 border-[#2a2b32]">
                 <img
                   src="/images/profile.png"
                   alt="Arya Sasikumar"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <p className="text-base text-gray-400 mb-6">
-                I'm AryaGPT, an AI-powered digital twin of Arya Sasikumar. I have access to all of Arya's experiences, projects, and background. Ask me anything about him!
+              <p className="text-sm sm:text-base text-gray-400 mb-3 sm:mb-6">
+                I'm AryaGPT, an AI-powered digital twin of Arya Sasikumar. Ask me anything about him!
               </p>
-              <div className="flex justify-center gap-4 mb-1">
-                <span className="px-4 py-2 bg-[#2a2b32] rounded-full text-sm text-gray-300">🎓 UC Berkeley M.E.T. Junior</span>
-                <span className="px-4 py-2 bg-[#2a2b32] rounded-full text-sm text-gray-300">💻 Robotics Engineer</span>
-                <span className="px-4 py-2 bg-[#2a2b32] rounded-full text-sm text-gray-300">🚀 Entrepreneur</span>
+              <div className="flex justify-center gap-2 sm:gap-4 mb-1">
+                <span className="px-2 py-1 sm:px-4 sm:py-2 bg-[#2a2b32] rounded-full text-xs sm:text-sm text-gray-300">🎓 UC Berkeley</span>
+                <span className="px-2 py-1 sm:px-4 sm:py-2 bg-[#2a2b32] rounded-full text-xs sm:text-sm text-gray-300">💻 Robotics</span>
+                <span className="px-2 py-1 sm:px-4 sm:py-2 bg-[#2a2b32] rounded-full text-xs sm:text-sm text-gray-300">🚀 Entrepreneur</span>
               </div>
             </div>
 
-            <h2 className="text-2xl font-semibold mb-4 text-center">What can I help with?</h2>
+            <h2 className="text-xl sm:text-2xl font-semibold mb-2 sm:mb-4 text-center">What can I help with?</h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 w-full max-w-xl">
+            <div className="grid grid-cols-2 gap-2 sm:gap-4 w-full max-w-xl px-1">
               <button
                 onClick={() => handleSendMessage("Tell me about Arya's background")}
-                className="p-4 bg-[#2a2b32] rounded-xl hover:bg-[#3a3b42] transition-colors text-left h-auto md:h-[120px] flex flex-col"
+                className="p-2 sm:p-4 bg-[#2a2b32] rounded-xl hover:bg-[#3a3b42] transition-colors text-left h-auto flex flex-col"
               >
-                <h3 className="font-medium mb-2 text-sm md:text-base">Arya's background</h3>
-                <p className="text-xs md:text-sm text-gray-400">Learn about education and experiences</p>
+                <h3 className="font-medium text-xs sm:text-base">Arya's background</h3>
+                <p className="text-xs text-gray-400 hidden sm:block">Learn about education and experiences</p>
               </button>
 
               <button
                 onClick={() => handleSendMessage("What projects has Arya worked on?")}
-                className="p-4 bg-[#2a2b32] rounded-xl hover:bg-[#3a3b42] transition-colors text-left h-auto md:h-[120px] flex flex-col"
+                className="p-2 sm:p-4 bg-[#2a2b32] rounded-xl hover:bg-[#3a3b42] transition-colors text-left h-auto flex flex-col"
               >
-                <h3 className="font-medium mb-2 text-sm md:text-base">Arya's projects</h3>
-                <p className="text-xs md:text-sm text-gray-400">Explore technical projects and achievements</p>
+                <h3 className="font-medium text-xs sm:text-base">Arya's projects</h3>
+                <p className="text-xs text-gray-400 hidden sm:block">Explore technical projects and achievements</p>
               </button>
 
               <button
                 onClick={() => handleSendMessage("How can I contact Arya?")}
-                className="p-4 bg-[#2a2b32] rounded-xl hover:bg-[#3a3b42] transition-colors text-left h-auto md:h-[120px] flex flex-col"
+                className="p-2 sm:p-4 bg-[#2a2b32] rounded-xl hover:bg-[#3a3b42] transition-colors text-left h-auto flex flex-col"
               >
-                <h3 className="font-medium mb-2 text-sm md:text-base">Contact Arya</h3>
-                <p className="text-xs md:text-sm text-gray-400">Get contact info and social links</p>
+                <h3 className="font-medium text-xs sm:text-base">Contact Arya</h3>
+                <p className="text-xs text-gray-400 hidden sm:block">Get contact info and social links</p>
               </button>
 
               <button
                 onClick={() => handleSendMessage("What are Arya's skills?")}
-                className="p-4 bg-[#2a2b32] rounded-xl hover:bg-[#3a3b42] transition-colors text-left h-auto md:h-[120px] flex flex-col"
+                className="p-2 sm:p-4 bg-[#2a2b32] rounded-xl hover:bg-[#3a3b42] transition-colors text-left h-auto flex flex-col"
               >
-                <h3 className="font-medium mb-2 text-sm md:text-base">Arya's skills</h3>
-                <p className="text-xs md:text-sm text-gray-400">Discover technical and professional skills</p>
+                <h3 className="font-medium text-xs sm:text-base">Arya's skills</h3>
+                <p className="text-xs text-gray-400 hidden sm:block">Discover technical and professional skills</p>
               </button>
             </div>
           </div>

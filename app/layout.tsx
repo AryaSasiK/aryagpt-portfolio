@@ -6,9 +6,13 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "AryaGPT",
+  title: "AryaGPT - Arya Sasikumar's Portfolio",
   description: "A ChatGPT-like interface for AryaGPT",
-    generator: 'v0.dev'
+  generator: 'v0.dev',
+  icons: {
+    icon: '/images/profile.png',
+    apple: '/images/profile.png'
+  }
 }
 
 export default function RootLayout({
@@ -18,11 +22,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#171717" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="AryaGPT" />
+        <link rel="manifest" href="/manifest.json" />
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   )
 }
-
-
-
-import './globals.css'
