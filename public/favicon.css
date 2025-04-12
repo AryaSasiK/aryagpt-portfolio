@@ -1,0 +1,5 @@
+/* Circular Favicon Styles */
+link[rel="icon"] {
+  border-radius: 50%;
+  overflow: hidden;
+} 

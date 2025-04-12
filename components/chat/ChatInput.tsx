@@ -26,9 +26,9 @@ export function ChatInput({
   }
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-[#212121] pt-1 pb-3 px-2 md:pt-2 md:pb-4 md:px-4 flex justify-center z-40 border-t border-[#343541]">
+    <div className="fixed md:absolute bottom-0 left-0 right-0 bg-[#212121] pt-1 pb-3 px-2 md:pt-2 md:pb-4 md:px-4 flex justify-center z-10 border-t border-[#343541]">
       <motion.div 
-        className="w-full max-w-3xl"
+        className="w-full max-w-3xl mx-auto"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}

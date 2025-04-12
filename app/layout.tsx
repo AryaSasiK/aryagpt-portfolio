@@ -10,8 +10,8 @@ export const metadata: Metadata = {
   description: "A ChatGPT-like interface for AryaGPT",
   generator: 'v0.dev',
   icons: {
-    icon: '/images/profile.png',
-    apple: '/images/profile.png'
+    icon: '/favicon.svg',
+    apple: '/favicon.svg'
   }
 }
 
@@ -29,6 +29,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="AryaGPT" />
         <link rel="manifest" href="/manifest.json" />
+        <link rel="stylesheet" href="/favicon.css" />
       </head>
       <body className={inter.className}>{children}</body>
     </html>
