@@ -110,7 +110,7 @@ export const ChatContainer = forwardRef<ChatContainerRef, ChatContainerProps>(
       {/* Chat messages area */}
       <div className="flex-1 overflow-y-auto bg-[#212121] pb-16 sm:pb-24">
         {initialMessages.length === 0 ? (
-          <div className="absolute sm:relative inset-0 sm:inset-auto flex flex-col items-center justify-start sm:justify-center h-full max-w-2xl mx-auto px-3 pt-12 pb-2 sm:px-4 sm:py-8">
+          <div className="absolute sm:relative inset-0 sm:inset-auto flex flex-col items-center justify-start sm:justify-center h-full max-w-2xl mx-auto px-3 pt-20 pb-2 sm:px-4 sm:py-8">
             <div className="text-center mb-3 sm:mb-6">
               <h1 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-6 text-white">
                 Welcome to Arya's Digital Portfolio
