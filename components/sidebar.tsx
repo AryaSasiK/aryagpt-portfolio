@@ -2,10 +2,17 @@
 
 import type React from "react"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Plus, User, Linkedin, Phone, Mail } from "lucide-react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+
+// Add a TypeScript declaration to extend HTMLDivElement
+declare global {
+  interface HTMLDivElement {
+    scrollTimer?: NodeJS.Timeout;
+  }
+}
 
 interface SidebarProps {
   isOpen: boolean
@@ -145,7 +152,7 @@ export default function Sidebar({ isOpen, onNewChat, chats = [], onChatSelected,
 
         {/* Scrollable content */}
         <div 
-          className="flex-1 overflow-y-auto bg-[#171717] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-[#171717] [&::-webkit-scrollbar-thumb]:bg-[#2a2b32] [&::-webkit-scrollbar-thumb]:rounded-full [-webkit-tap-highlight-color:transparent] select-none"
+          className="flex-1 overflow-y-auto bg-[#171717] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-[#171717] [&::-webkit-scrollbar-thumb]:bg-[#2a2b32] [&::-webkit-scrollbar-thumb]:rounded-full [-webkit-tap-highlight-color:transparent] select-none scrollbar-gutter-stable hover:[&::-webkit-scrollbar-thumb]:opacity-100 [&::-webkit-scrollbar-thumb]:opacity-0 [&::-webkit-scrollbar-thumb]:transition-opacity [&::-webkit-scrollbar-thumb]:duration-1000 [&::-webkit-scrollbar-thumb]:ease-in-out"
           style={{
             WebkitTapHighlightColor: 'transparent',
             WebkitTouchCallout: 'none',
@@ -156,6 +163,14 @@ export default function Sidebar({ isOpen, onNewChat, chats = [], onChatSelected,
             backgroundColor: '#171717',
             outline: 'none',
             WebkitAppearance: 'none'
+          }}
+          onScroll={(e) => {
+            const target = e.currentTarget;
+            target.classList.add('scrolling');
+            clearTimeout(target.scrollTimer);
+            target.scrollTimer = setTimeout(() => {
+              target.classList.remove('scrolling');
+            }, 1000);
           }}
         >
           {/* Today's chats */}

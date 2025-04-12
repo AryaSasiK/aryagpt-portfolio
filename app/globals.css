@@ -90,3 +90,13 @@
   animation: appear 0.3s ease-out forwards;
 }
 
+/* Add CSS for scrollbar auto-hiding */
+.scrolling::-webkit-scrollbar-thumb {
+  opacity: 1 !important;
+}
+
+/* Remove any outlines from the navigation elements */
+button, a {
+  outline: none;
+}
+

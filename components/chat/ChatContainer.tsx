@@ -7,6 +7,13 @@ import { ChatInput } from "@/components/chat/ChatInput"
 import { LoadingIndicator } from './LoadingIndicator'
 import { ErrorMessage } from './ErrorMessage'
 
+// Add TypeScript declaration for HTMLDivElement extension
+declare global {
+  interface HTMLDivElement {
+    scrollTimer?: NodeJS.Timeout;
+  }
+}
+
 export interface Message extends ChatMessageProps {
   id: number | string
   content: string 
@@ -108,7 +115,17 @@ export const ChatContainer = forwardRef<ChatContainerRef, ChatContainerProps>(
   return (
     <div className="flex flex-col h-[calc(100dvh-56px)] overflow-hidden" key={renderKey}>
       {/* Chat messages area */}
-      <div className="flex-1 overflow-y-auto bg-[#212121] pb-16 sm:pb-24">
+      <div 
+        className="flex-1 overflow-y-auto bg-[#212121] pb-16 sm:pb-24 scrollbar-gutter-stable [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-[#212121] [&::-webkit-scrollbar-thumb]:bg-[#2a2b32] [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:opacity-100 [&::-webkit-scrollbar-thumb]:opacity-0 [&::-webkit-scrollbar-thumb]:transition-opacity [&::-webkit-scrollbar-thumb]:duration-1000 [&::-webkit-scrollbar-thumb]:ease-in-out"
+        onScroll={(e) => {
+          const target = e.currentTarget;
+          target.classList.add('scrolling');
+          clearTimeout(target.scrollTimer);
+          target.scrollTimer = setTimeout(() => {
+            target.classList.remove('scrolling');
+          }, 1000);
+        }}
+      >
         {initialMessages.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-full max-w-2xl mx-auto px-3 py-2 sm:px-4 sm:py-8">
             <div className="text-center mb-3 sm:mb-6">
