@@ -79,7 +79,7 @@ export function Header({ sidebarOpen, setSidebarOpen, onNewChat = () => {} }: He
           href="https://docs.google.com/forms/d/e/1FAIpQLSe2RfM2L2pd7-nPrGb-MdQryRMFZdbZzd2pkJIOPOZid-Spxw/viewform?usp=dialog"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 px-4 py-2 text-sm rounded-full bg-[#1e1f25] hover:bg-[#2a2b32] transition-colors"
+          className="hidden md:flex items-center gap-2 px-4 py-2 text-sm rounded-full bg-[#1e1f25] hover:bg-[#2a2b32] transition-colors"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -102,6 +102,36 @@ export function Header({ sidebarOpen, setSidebarOpen, onNewChat = () => {} }: He
           </svg>
           Want Your Own GPT Personal Portfolio?
         </motion.a>
+        
+        {/* Mobile version with just the icon */}
+        <motion.a 
+          href="https://docs.google.com/forms/d/e/1FAIpQLSe2RfM2L2pd7-nPrGb-MdQryRMFZdbZzd2pkJIOPOZid-Spxw/viewform?usp=dialog"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="md:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[#1e1f25] hover:bg-[#2a2b32] transition-colors"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          aria-label="Want Your Own GPT Personal Portfolio?"
+        >
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="text-white"
+          >
+            <path
+              d="M2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12Z"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeDasharray="1 3"
+            />
+          </svg>
+        </motion.a>
+        
         <Avatar className="h-8 w-8">
           <AvatarImage src="/images/profile.png" alt="Arya Sasikumar" />
           <AvatarFallback>AS</AvatarFallback>

@@ -19,7 +19,8 @@ interface Conversation {
 
 // MainApp component that uses the chat context
 function MainApp() {
-  const [sidebarOpen, setSidebarOpen] = useState(true)
+  const isMobile = useIsMobile()
+  const [sidebarOpen, setSidebarOpen] = useState(!isMobile)
   const [conversations, setConversations] = useState<Conversation[]>([
     { id: 1, title: "AryaGPT Portfolio Concept", date: "today", messages: [] }
   ])
@@ -183,5 +184,26 @@ export default function Home() {
       </ChatProvider>
     </ThemeProvider>
   )
+}
+
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    
+    // Check on initial render
+    checkIfMobile()
+    
+    // Add event listener for window resize
+    window.addEventListener('resize', checkIfMobile)
+    
+    // Clean up
+    return () => window.removeEventListener('resize', checkIfMobile)
+  }, [])
+
+  return isMobile
 }
 

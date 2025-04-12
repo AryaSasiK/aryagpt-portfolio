@@ -134,37 +134,37 @@ export const ChatContainer = forwardRef<ChatContainerRef, ChatContainerProps>(
 
             <h2 className="text-2xl font-semibold mb-4 text-center">What can I help with?</h2>
 
-            <div className="grid grid-cols-2 gap-6 w-full max-w-xl">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 w-full max-w-xl">
               <button
                 onClick={() => handleSendMessage("Tell me about Arya's background")}
-                className="p-4 bg-[#2a2b32] rounded-xl hover:bg-[#3a3b42] transition-colors text-left h-[120px]"
+                className="p-4 bg-[#2a2b32] rounded-xl hover:bg-[#3a3b42] transition-colors text-left h-auto md:h-[120px] flex flex-col"
               >
-                <h3 className="font-medium mb-2">Tell me about Arya's background</h3>
-                <p className="text-sm text-gray-400">Learn about Arya's journey, education, and experiences</p>
+                <h3 className="font-medium mb-2 text-sm md:text-base">Arya's background</h3>
+                <p className="text-xs md:text-sm text-gray-400">Learn about education and experiences</p>
               </button>
 
               <button
                 onClick={() => handleSendMessage("What projects has Arya worked on?")}
-                className="p-4 bg-[#2a2b32] rounded-xl hover:bg-[#3a3b42] transition-colors text-left h-[120px]"
+                className="p-4 bg-[#2a2b32] rounded-xl hover:bg-[#3a3b42] transition-colors text-left h-auto md:h-[120px] flex flex-col"
               >
-                <h3 className="font-medium mb-2">What projects has Arya worked on?</h3>
-                <p className="text-sm text-gray-400">Explore Arya's technical projects and achievements</p>
+                <h3 className="font-medium mb-2 text-sm md:text-base">Arya's projects</h3>
+                <p className="text-xs md:text-sm text-gray-400">Explore technical projects and achievements</p>
               </button>
 
               <button
                 onClick={() => handleSendMessage("How can I contact Arya?")}
-                className="p-4 bg-[#2a2b32] rounded-xl hover:bg-[#3a3b42] transition-colors text-left h-[120px]"
+                className="p-4 bg-[#2a2b32] rounded-xl hover:bg-[#3a3b42] transition-colors text-left h-auto md:h-[120px] flex flex-col"
               >
-                <h3 className="font-medium mb-2">How can I contact Arya?</h3>
-                <p className="text-sm text-gray-400">Get Arya's contact information and social links</p>
+                <h3 className="font-medium mb-2 text-sm md:text-base">Contact Arya</h3>
+                <p className="text-xs md:text-sm text-gray-400">Get contact info and social links</p>
               </button>
 
               <button
                 onClick={() => handleSendMessage("What are Arya's skills?")}
-                className="p-4 bg-[#2a2b32] rounded-xl hover:bg-[#3a3b42] transition-colors text-left h-[120px]"
+                className="p-4 bg-[#2a2b32] rounded-xl hover:bg-[#3a3b42] transition-colors text-left h-auto md:h-[120px] flex flex-col"
               >
-                <h3 className="font-medium mb-2">What are Arya's skills?</h3>
-                <p className="text-sm text-gray-400">Discover Arya's technical and professional skills</p>
+                <h3 className="font-medium mb-2 text-sm md:text-base">Arya's skills</h3>
+                <p className="text-xs md:text-sm text-gray-400">Discover technical and professional skills</p>
               </button>
             </div>
           </div>
