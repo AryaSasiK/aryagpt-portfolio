@@ -79,7 +79,7 @@ export function Header({ sidebarOpen, setSidebarOpen, onNewChat = () => {} }: He
           href="https://docs.google.com/forms/d/e/1FAIpQLSe2RfM2L2pd7-nPrGb-MdQryRMFZdbZzd2pkJIOPOZid-Spxw/viewform?usp=dialog"
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:flex items-center gap-2 px-4 py-2 text-sm rounded-full bg-[#1e1f25] hover:bg-[#2a2b32] transition-colors"
+          className="hidden md:flex items-center gap-2 px-4 py-2 text-sm rounded-full bg-[#1e1f25] hover:bg-[#2a2b32] transition-colors mr-2.5"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -100,7 +100,7 @@ export function Header({ sidebarOpen, setSidebarOpen, onNewChat = () => {} }: He
               strokeDasharray="1 3"
             />
           </svg>
-          Want Your Own GPT Personal Portfolio?
+          Want Your Own GPT Portfolio?
         </motion.a>
         
         {/* Mobile version with just the icon */}
@@ -111,7 +111,7 @@ export function Header({ sidebarOpen, setSidebarOpen, onNewChat = () => {} }: He
           className="md:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[#1e1f25] hover:bg-[#2a2b32] transition-colors"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          aria-label="Want Your Own GPT Personal Portfolio?"
+          aria-label="Want a GPT Portfolio?"
         >
           <svg
             width="16"
