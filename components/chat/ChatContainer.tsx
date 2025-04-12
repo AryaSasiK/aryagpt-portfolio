@@ -108,7 +108,7 @@ export const ChatContainer = forwardRef<ChatContainerRef, ChatContainerProps>(
   return (
     <div className="flex flex-col h-[calc(100vh-56px)] overflow-hidden" key={renderKey}>
       {/* Chat messages area */}
-      <div className="flex-1 overflow-y-auto bg-[#212121]">
+      <div className="flex-1 overflow-y-auto bg-[#212121] pb-16 sm:pb-24">
         {initialMessages.length === 0 ? (
           <div className="flex flex-col items-center justify-center min-h-full max-w-2xl mx-auto px-4 py-8">
             <div className="text-center mb-6">
@@ -169,7 +169,7 @@ export const ChatContainer = forwardRef<ChatContainerRef, ChatContainerProps>(
             </div>
           </div>
         ) : (
-          <div className="px-4 py-4 space-y-4">
+          <div className="px-4 py-4 space-y-4 max-w-3xl mx-auto">
             {/* Display all messages */}
             {initialMessages.map((message) => (
               // Skip rendering messages that would duplicate the streaming message

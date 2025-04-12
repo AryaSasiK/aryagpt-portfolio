@@ -26,7 +26,7 @@ export function ChatInput({
   }
 
   return (
-    <div className="p-4 md:p-6 flex justify-center">
+    <div className="sticky bottom-0 left-0 right-0 bg-[#212121] pt-2 pb-4 px-2 md:p-4 flex justify-center z-10 border-t border-[#343541]">
       <motion.div 
         className="w-full max-w-3xl"
         initial={{ opacity: 0, y: 20 }}
@@ -82,8 +82,8 @@ export function ChatInput({
           </div>
         </form>
 
-        {/* Disclaimer text */}
-        <p className="text-xs text-center text-gray-500 mt-3">
+        {/* Disclaimer text - hide on very small screens */}
+        <p className="text-xs text-center text-gray-500 mt-2 hidden sm:block">
           AryaGPT can make mistakes. Consider checking important information.
         </p>
       </motion.div>
