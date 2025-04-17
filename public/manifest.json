@@ -1,7 +1,7 @@
 {
-  "name": "AryaGPT - Arya Sasikumar's Portfolio",
-  "short_name": "AryaGPT",
-  "description": "AI-powered digital twin of Arya Sasikumar",
+  "name": "Arya Sasikumar | AryaGPT Interactive Portfolio",
+  "short_name": "Arya Sasikumar",
+  "description": "Interactive AI portfolio of Arya Sasikumar - showcasing skills, projects, and professional experience through a conversational interface",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#171717",
